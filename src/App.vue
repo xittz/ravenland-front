@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <div class="bar">
-      <div class="container">
-        <div class="top-bar-right">
-          <a href="https://discord.gg/3448yES"><i class="fab fa-discord"></i></a>
-        </div>
+    <nav class="navbar">
+      <div class="navbar-end">
+        <a class="navbar-item" v-scroll-to="{element: '#team', duration: 1000}">
+          Team
+        </a>
+        <a class="navbar-item" href="https://discord.gg/3448yES"><i class="fab fa-discord fa-hover"></i></a>
       </div>
-    </div>
+    </nav>
     <Home/>
-    <div class="bar footer">
-      <div class="top-bar-right">
+    <div class="bar foot">
+      <div class="down-bar-right">
         <p class="footer-text">RavenLand 2018</p>
       </div>
     </div>
@@ -29,8 +30,14 @@ export default {
 
 <style>
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
   margin: 0px;
+  margin-bottom: 60px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -53,19 +60,59 @@ p {
   background-color: #f15b22;
 }
 
+.navbar {
+  background-color: #f15b22;
+}
+
+.navbar-item {
+  color: white;
+}
+
+.navbar-item:hover {
+  color: #2e3e80;
+}
+
+.navbar-item:hover .fa-discord {
+  color: #2e3e80;
+}
+
+.fa-hover:hover {
+  color: #2e3e80;
+}
+
+
+
 .top-bar-right {
   height: 100%;
   margin-left: 85%;
 }
 
+.down-bar-right {
+  height: 100%;
+  margin-left: 80%;
+}
+
+.nav-link {
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+}
+
+.nav-link:hover{
+  cursor: pointer;
+}
+
 .fa-discord {
   color: white;
   font-size: 24px;
-  padding: 10px;
 }
 
-.footer {
+.foot {
   height: 60px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow:hidden;
 }
 
 .footer-text {

@@ -25,10 +25,21 @@
           </p>
         </div>
       </div>
-      <div class="explanation back-blue">
+      <div id="team" class="explanation back-blue">
         <div class="container">
-          <h2 class="white section-title small-padding">Become a part of our community</h2>
-          <p class="white text no-margin">
+          <h2 class="white section-title small-padding">Meet our team</h2>
+          <div class="columns is-multiline is-centered">
+            <TeamMember 
+              v-for="teamMember in teamMembers" 
+              :member="teamMember"
+              :class="columnClass" />
+          </div>
+        </div>
+      </div>
+      <div class="explanation back-white">
+        <div class="container">
+          <h2 class="orange section-title small-padding">Become a part of our community</h2>
+          <p class="orange text no-margin">
             Learn more about RavenLand and join the discussion in our discord
           </p>
           <a href="https://discord.gg/3448yES"><img class="discord-logo" src="../assets/discord-join.png" height="60px"></a>
@@ -38,13 +49,40 @@
 </template>
 
 <script>
+
+// array containing all the team members
+import TeamMembers from '../data/teammembers'
+// TeamMember component
+import TeamMember from  '../components/TeamMember'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    'TeamMember': TeamMember
+  },
+  data() {
+    return {
+      teamMembers: [],
+    }
+  },
+  computed: {
+    columnClass() {
+      if (this.teamMembers.length > 4)
+        return 'column is-half-tablet is-one-third is-centered'
+      else
+        return 'column is-half-tablet is-one-quarter is-centered'
+    }
+  },
+  mounted() {
+    this.teamMembers = TeamMembers;
+  }
 }
 </script>
 
 <style scoped>
-.content {
+
+.member-photo {
+  padding: 0;
 }
 
 img {
