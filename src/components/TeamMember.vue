@@ -3,16 +3,16 @@
         <div>
             <img class="member-photo" :src="member.img">
         </div>
-        <div>
+        <div class="content">
             <p class="text name">
                 {{ member.name }}
             </p>
             <p class="text position">
                 {{ member.position }}
             </p>
-            <p class="text description">
+            <div class="text description">
                 {{ member.text }}
-            </p>
+            </div>
         </div>
         <div class="socials">
             <a v-if="member.socials.linkedin != null" 
@@ -44,11 +44,13 @@ export default {
 
 .member {
     padding-bottom: 30px;
+    position: relative;
 }
 
 .member-photo {
   padding: 0;
   border-radius: 50%;
+  max-height: 200px;
 }
 
 .fab {
@@ -63,6 +65,12 @@ export default {
 
 .socials {
     padding-top: 20px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .text {
@@ -75,12 +83,12 @@ export default {
     margin-bottom: 0px;
 }
 
-
 .name {
     font-size: 2rem;
 }
 
 .description {
     font-size: 24px;
+    min-height: 250px;
 }
 </style>

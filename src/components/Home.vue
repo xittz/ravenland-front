@@ -26,7 +26,7 @@
         </div>
       </div>
       <div id="team" class="explanation back-blue">
-        <div class="container">
+        <div class="container team">
           <h2 class="white section-title small-padding">Meet our team</h2>
           <div class="columns is-multiline is-centered">
             <TeamMember 
@@ -142,5 +142,15 @@ img {
 .discord-logo {
   padding: 0px;
   padding-top: 20px;
+}
+
+.team {
+  padding-bottom: 40px;
+}
+
+.columns {
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
 }
 </style>
